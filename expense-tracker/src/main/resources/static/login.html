@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log in | SpendLedger</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/css/style.css"></head>
+<body><div class="auth">
+  <section class="auth-art">
+    <a class="brand" href="/login.html"><span class="mark">₹</span>SpendLedger</a>
+    <div>
+      <h2>Know where every rupee went.</h2>
+      <p>Log income and spending, set monthly budgets, and see the month at a glance.</p>
+    </div>
+    <div class="preview" aria-hidden="true">
+      <div class="p-row"><span>Salary<small>1 Oct</small></span><span class="p-in num">+₹85,000</span></div>
+      <div class="p-row"><span>House rent<small>2 Oct</small></span><span class="p-out num">−₹22,000</span></div>
+      <div class="p-row"><span>Groceries<small>4 Oct</small></span><span class="p-out num">−₹1,240</span></div>
+      <div class="p-bud">Food budget: ₹5,400 of ₹7,500<div class="bar"><span style="width:72%"></span></div></div>
+    </div>
+  </section>
+  <main class="auth-main"><div class="auth-card">
+    <a class="brand mobile-brand" href="/login.html"><span class="mark">₹</span>SpendLedger</a>
+    <h1>Welcome back</h1>
+    <p class="muted" style="margin:0">Log in to pick up where you left off.</p>
+    <form id="form">
+      <label>Email<input type="email" id="email" required autocomplete="email" placeholder="you@example.com"></label>
+      <label>Password<span class="pw"><input type="password" id="password" required autocomplete="current-password"><button type="button" id="toggle-pw" aria-label="Show password">Show</button></span></label>
+      <p class="error" id="error" role="alert"></p>
+      <button class="btn wide" id="submit">Log in</button>
+      <p class="or">or</p>
+      <button class="btn ghost wide" type="button" id="demo">Try the demo account</button>
+    </form>
+    <p class="auth-foot">New here? <a href="/register.html">Create an account</a></p>
+  </div></main>
+</div>
+<script type="module" src="/js/auth.js"></script></body></html>

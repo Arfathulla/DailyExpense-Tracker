@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create account | SpendLedger</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/css/style.css"></head>
+<body><div class="auth">
+  <section class="auth-art">
+    <a class="brand" href="/login.html"><span class="mark">₹</span>SpendLedger</a>
+    <div>
+      <h2>Start with a clean ledger.</h2>
+      <p>We set up common categories like Food, Rent and Salary, so you can log your first transaction in a minute.</p>
+    </div>
+    <div class="preview" aria-hidden="true">
+      <div class="p-row"><span>Freelance<small>12 Oct</small></span><span class="p-in num">+₹12,000</span></div>
+      <div class="p-row"><span>Electricity and internet<small>5 Oct</small></span><span class="p-out num">−₹3,150</span></div>
+      <div class="p-bud">Bills budget: ₹3,150 of ₹4,500<div class="bar"><span style="width:70%"></span></div></div>
+    </div>
+  </section>
+  <main class="auth-main"><div class="auth-card">
+    <a class="brand mobile-brand" href="/login.html"><span class="mark">₹</span>SpendLedger</a>
+    <h1>Create your account</h1>
+    <p class="muted" style="margin:0">Free to use. No card needed.</p>
+    <form id="form">
+      <label>Name<input id="name" required maxlength="100" autocomplete="name"></label>
+      <label>Email<input type="email" id="email" required autocomplete="email" placeholder="you@example.com"></label>
+      <label>Password<span class="pw"><input type="password" id="password" required minlength="6" autocomplete="new-password" aria-describedby="pw-hint"><button type="button" id="toggle-pw" aria-label="Show password">Show</button></span></label>
+      <p class="muted" id="pw-hint" style="margin:-.4rem 0 0;font-size:.82rem">Use at least 6 characters.</p>
+      <p class="error" id="error" role="alert"></p>
+      <button class="btn wide" id="submit">Create account</button>
+    </form>
+    <p class="auth-foot">Already have an account? <a href="/login.html">Log in</a></p>
+  </div></main>
+</div>
+<script type="module" src="/js/auth.js"></script></body></html>

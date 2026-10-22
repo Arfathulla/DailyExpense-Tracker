@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard | SpendLedger</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script></head>
+<body><main>
+  <div class="head"><div><h1 id="greeting">Dashboard</h1><p>Here is how your money moved.</p></div>
+    <label>Month <input type="month" id="month"></label></div>
+
+  <section id="stats" aria-live="polite"></section>
+
+  <div class="grid g-dash mt">
+    <div class="card"><h2>Income vs expenses, last 6 months</h2>
+      <div class="canvas-box"><canvas id="bar"></canvas></div></div>
+    <div class="card"><h2>Where the money went</h2>
+      <div class="canvas-box"><canvas id="pie"></canvas></div><p class="empty" id="pie-empty" hidden>No expenses this month yet.</p></div>
+  </div>
+
+  <div class="grid g-dash mt">
+    <div class="card"><div class="card-head"><h2>Recent transactions</h2><a href="/transactions.html">View all</a></div><div id="recent"></div></div>
+    <div class="card"><div class="card-head"><h2>Budget check</h2><a href="/budgets.html">Manage</a></div><div id="budgets"></div></div>
+  </div>
+</main>
+<script type="module" src="/js/dashboard.js"></script></body></html>

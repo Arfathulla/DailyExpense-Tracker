@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transactions | SpendLedger</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/css/style.css"></head>
+<body><main>
+  <div class="head"><div><h1>Transactions</h1><p>Every income and expense, with search and filters.</p></div>
+    <div class="row"><button class="btn ghost" id="export">Export CSV</button><button class="btn" id="add">Add transaction</button></div></div>
+
+  <div class="card">
+    <div class="filters">
+      <label>From<input type="date" id="f-from"></label>
+      <label>To<input type="date" id="f-to"></label>
+      <label>Type<select id="f-type"><option value="">All</option><option value="EXPENSE">Expense</option><option value="INCOME">Income</option></select></label>
+      <label>Category<select id="f-cat"><option value="">All</option></select></label>
+      <label style="flex:1;min-width:160px">Search notes<input type="search" id="f-q" placeholder="e.g. groceries"></label>
+      <button class="btn ghost" id="clear" type="button">Clear</button>
+    </div>
+    <div class="table-wrap"><table>
+      <thead><tr><th class="sort" data-field="txnDate">Date</th><th>Category</th><th>Note</th><th class="sort amt" data-field="amount">Amount</th><th></th></tr></thead>
+      <tbody id="rows"></tbody></table></div>
+    <div class="pager"><span id="info"></span><span class="row"><button class="btn ghost sm" id="prev">Previous</button><button class="btn ghost sm" id="next">Next</button></span></div>
+  </div>
+</main>
+
+<dialog id="dlg"><form id="form" class="form-grid">
+  <h2 class="full" id="dlg-title">Add transaction</h2>
+  <input type="hidden" id="d-id">
+  <label>Type<select id="d-type"><option value="EXPENSE">Expense</option><option value="INCOME">Income</option></select></label>
+  <label>Category<select id="d-cat" required></select></label>
+  <label>Amount (INR)<input type="number" id="d-amount" step="0.01" min="0.01" required></label>
+  <label>Date<input type="date" id="d-date" required></label>
+  <label class="full">Note (optional)<input id="d-note" maxlength="255"></label>
+  <p class="error full" id="d-error" role="alert"></p>
+  <div class="row full" style="justify-content:flex-end"><button class="btn ghost" type="button" id="cancel">Cancel</button><button class="btn" id="save">Save transaction</button></div>
+</form></dialog>
+<script type="module" src="/js/transactions.js"></script></body></html>

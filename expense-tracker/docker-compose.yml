@@ -1,0 +1,39 @@
+services:
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: expensetracker
+      MYSQL_USER: tracker
+      MYSQL_PASSWORD: tracker_pw
+      MYSQL_ROOT_PASSWORD: root_pw
+    ports: ["3307:3306"]
+    volumes: [dbdata:/var/lib/mysql]
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot_pw"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  # Local SMTP catcher: web UI on http://localhost:8025 shows every email the app sends. Nothing leaves your machine.
+  mailpit:
+    image: axllent/mailpit:latest
+    ports: ["8025:8025", "1025:1025"]
+
+  app:
+    build: .
+    depends_on:
+      db: { condition: service_healthy }
+      mailpit: { condition: service_started }
+    ports: ["8080:8080"]
+    environment:
+      DB_URL: jdbc:mysql://db:3306/expensetracker
+      DB_USER: tracker
+      DB_PASSWORD: tracker_pw
+      JWT_SECRET: replace-this-with-a-long-random-string-at-least-32-chars
+      SEED_DEMO: "true"
+      MAIL_ENABLED: "true"
+      MAIL_HOST: mailpit
+      MAIL_PORT: "1025"
+
+volumes:
+  dbdata:

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Categories | SpendLedger</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/css/style.css"></head>
+<body><main>
+  <div class="head"><div><h1>Categories and recurring items</h1><p>Organise your spending and automate what repeats.</p></div></div>
+
+  <div class="card"><h2>Categories</h2>
+    <div class="grid g2">
+      <div><p class="muted" style="margin:.2rem 0 .6rem">Expense</p><div class="chips" id="cats-exp"></div></div>
+      <div><p class="muted" style="margin:.2rem 0 .6rem">Income</p><div class="chips" id="cats-inc"></div></div>
+    </div>
+    <form id="cat-form" class="filters" style="margin:1.1rem 0 0">
+      <label>New category<input id="cat-name" maxlength="50" required placeholder="e.g. Groceries"></label>
+      <label>Type<select id="cat-type"><option value="EXPENSE">Expense</option><option value="INCOME">Income</option></select></label>
+      <button class="btn">Add category</button><span class="error" id="cat-error" role="alert"></span>
+    </form>
+  </div>
+
+  <div class="card" style="margin-top:1rem"><h2>Recurring items</h2>
+    <p class="muted" style="margin-top:0">A transaction is created automatically each month on the chosen day. Days like 31 fall back to the last day of shorter months.</p>
+    <div id="rec-list"></div>
+    <form id="rec-form" class="filters" style="margin:1.1rem 0 0">
+      <label>Type<select id="r-type"><option value="EXPENSE">Expense</option><option value="INCOME">Income</option></select></label>
+      <label>Category<select id="r-cat" required></select></label>
+      <label>Amount<input type="number" id="r-amount" min="0.01" step="0.01" required style="width:120px"></label>
+      <label>Day of month<input type="number" id="r-day" min="1" max="31" required style="width:90px"></label>
+      <label style="flex:1;min-width:140px">Note<input id="r-note" maxlength="255" placeholder="e.g. Netflix"></label>
+      <button class="btn">Add recurring item</button><span class="error" id="rec-error" role="alert"></span>
+    </form>
+  </div>
+</main>
+<script type="module" src="/js/manage.js"></script></body></html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Budgets | SpendLedger</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/css/style.css"></head>
+<body><main>
+  <div class="head"><div><h1>Budgets</h1><p>Set monthly limits and see how close you are.</p></div><label class="row" style="display:flex">Month <input type="month" id="month"></label></div>
+  <div class="grid g-budget">
+    <div class="card"><h2>Spending against limits</h2><div id="list"></div></div>
+    <div class="card"><h2 id="form-title">Set a budget</h2>
+      <form id="form" class="form-grid" style="grid-template-columns:1fr">
+        <label>Category<select id="cat" required></select></label>
+        <label>Monthly limit (INR)<input type="number" id="limit" min="0.01" step="0.01" required></label>
+        <p class="error" id="error" role="alert"></p>
+        <button class="btn">Save budget</button>
+        <p class="muted" style="margin:0;font-size:.85rem">Saving a budget for a category that already has one updates its limit. You'll see a warning at 80% and again at 100%.</p>
+      </form></div>
+  </div>
+</main>
+<script type="module" src="/js/budgets.js"></script></body></html>

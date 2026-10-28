@@ -103,5 +103,3 @@ mvn test
 - Unit tests: JWT (tampered and expired tokens), budget thresholds, email composition (including HTML escaping), SMTP sender, and the summary job.
 - Integration tests (`src/test/java/.../integration`) run the whole app against a real **MySQL 8.4 in Docker** using Testcontainers: Flyway migrations plus Hibernate schema validation, the REST flow, per-user data isolation, budget statuses, aggregate queries, and the scheduled jobs. They need Docker running and are skipped automatically when it is not.
 
-## Ideas to extend
-Refresh tokens, multi-currency, receipt uploads, per-user email opt-out.

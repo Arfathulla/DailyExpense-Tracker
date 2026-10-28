@@ -88,13 +88,6 @@ All endpoints except `/api/auth/*` need `Authorization: Bearer <token>`.
 | Analytics | `GET /api/analytics/summary`, `/by-category`, `/monthly-trend?months=6` |
 | Recurring | `GET/POST /api/recurring`, `DELETE /api/recurring/{id}` |
 
-## Design decisions worth discussing
-- **Data isolation:** every query is scoped by the authenticated user's id (taken from the JWT, never from the request body), so users can't read or change each other's data. Foreign resources return 404.
-- **Money is `DECIMAL(12,2)` / `BigDecimal`**, never floating point.
-- **Indexing:** composite index on `transactions(user_id, txn_date)` supports the date-range filters and aggregations.
-- **Aggregation in SQL:** totals, category breakdowns and monthly trends use `GROUP BY` queries, not in-memory loops. See `docs/queries.sql` for plain-SQL versions including window functions.
-- **Idempotent scheduling:** `lastRunMonth` on each recurring rule prevents duplicate transactions if the job runs twice.
-- **Token storage tradeoff:** the JWT is kept in `localStorage` for simplicity, which is exposed to XSS. The front end escapes all user content before rendering. A production hardening step would be an httpOnly cookie plus CSRF protection.
 
 ## Tests
 ```bash
